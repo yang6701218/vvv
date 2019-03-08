@@ -1,0 +1,2 @@
+NODE_ENV=pro
+VUE_APP_PATH='http://127.0.0.1:3000'
