@@ -1,10 +1,8 @@
 <template>
-  <p>
-    店铺装修
-  </p>
+  <p>会员储值</p>
 </template>
 <script>
 export default {
-
+    
 }
 </script>

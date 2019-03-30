@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="log">
-      <span>后台管理</span>
+      <span></span>
     </div>
     <menuList />
   </div>
@@ -25,12 +25,13 @@ import menuList from '@/components/aside/menu.vue'
 <style lang="less" scoped>
 .log {
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: flex;
-  line-height: 100px;
+  line-height: 80px;
   text-align: center;
+  background-color: white;
   img {
-    width: 100px;
+    width: 80px;
     height: 40px;
   }
 }

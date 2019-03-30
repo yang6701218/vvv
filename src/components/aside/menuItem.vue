@@ -9,7 +9,7 @@
 export default {
     props:['list'],
     created(){
-        console.log(this.list)
+        
     }
 }
 </script>

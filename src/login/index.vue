@@ -39,7 +39,7 @@ import { mapActions } from 'vuex'
 			return {
 				ruleForm: {
 					userName: 'test',
-					password: '123456'
+					password: '123456',
 				},
 				rules: {
 					userName: [{
@@ -68,7 +68,7 @@ import { mapActions } from 'vuex'
             },
             login(){
                 this.$router.push({
-                    name:'shopList'
+                    name:'groupHappening'
                 })
             }
 		}

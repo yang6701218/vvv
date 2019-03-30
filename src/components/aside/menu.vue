@@ -1,12 +1,14 @@
 <template>
   <el-menu
-    default-active="2"
+    :default-active="$route.path"
     class="menuList"
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#ffd04b"
     @open="handleOpen"
     @close="handleClose"
+    :unique-opened="true"
+    :collapse="changeisCollapse"
     :router="true"
   >
     <el-submenu v-for="item in meunList" :index="item.path" :key="item.name">
@@ -26,13 +28,17 @@ import menuItem from '@/components/aside/menuItem.vue'
           menuItem
       },
       computed:{
-        ...mapGetters(['meunList']),
+        ...mapGetters(['meunList','changeisCollapse']),
+      },
+      data(){
+          return{
+              
+          }
       },
       created(){
         
       },
     methods: {
-      
        handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
@@ -43,6 +49,4 @@ import menuItem from '@/components/aside/menuItem.vue'
   }
 </script>
 <style lang="less" scoped>
-.menuList {
-}
 </style>
