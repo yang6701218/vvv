@@ -1,10 +1,10 @@
-import login from '@/login/index.vue';
-import main from '@/components/home.vue';
+import login from '@/login/index.vue'
+import main from '@/components/home.vue'
 export const lOginRouter = {
     name: 'login',
     path: '/',
-    component: login,
-};
+    component: login
+}
 export const appRouter = [
     {
         title: '系统首页',
@@ -13,29 +13,28 @@ export const appRouter = [
         component: main,
         children: [
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '集团情况',
                 name: 'groupHappening',
                 path: '/group/groupHappening',
                 component: () =>
-                    import('@/views/group/groupHappening/index.vue'),
+                    import('@/views/group/groupHappening/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '页面管理',
                 name: 'grouppage',
                 path: '/group/grouppage',
-                component: () => import('@/views/group/grouppage/index.vue'),
+                component: () => import('@/views/group/grouppage/index.vue')
             },
             {
                 asideMenu: true,
                 title: '模板管理',
                 name: 'grouptemplate',
                 path: '/group/grouptemplate',
-                component: () =>
-                    import('@/views/group/grouptemplate/index.vue'),
-            },
-        ],
+                component: () => import('@/views/group/grouptemplate/index.vue')
+            }
+        ]
     },
     {
         title: '权限管理',
@@ -44,22 +43,22 @@ export const appRouter = [
         component: main,
         children: [
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '菜单管理',
                 name: 'permissionmenu',
                 path: '/permission/permissionmenu',
                 component: () =>
-                    import('@/views/permission/permissionmenu/index.vue'),
+                    import('@/views/permission/permissionmenu/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '角色情况',
                 name: 'permissioncharacter',
                 path: '/permission/permissioncharacter',
                 component: () =>
-                    import('@/views/permission/permissioncharacter/index.vue'),
-            },
-        ],
+                    import('@/views/permission/permissioncharacter/index.vue')
+            }
+        ]
     },
     {
         title: '商品',
@@ -68,36 +67,36 @@ export const appRouter = [
         component: main,
         children: [
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '商品管理',
                 name: 'commoditymanagement',
                 path: '/commodity/commoditymanagement',
                 component: () =>
-                    import('@/views/commodity/commoditymanagement/index.vue'),
+                    import('@/views/commodity/commoditymanagement/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '商品分类',
                 name: 'commodityclassification',
                 path: '/commodity/commodityclassification',
                 component: () =>
-                    import('@/views/commodity/commodityclassification/index.vue'),
+                    import('@/views/commodity/commodityclassification/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '商品分组',
                 name: 'commodityGrouping',
                 path: '/commodity/commodityGrouping',
                 component: () =>
-                    import('@/views/commodity/commodityGrouping/index.vue'),
+                    import('@/views/commodity/commodityGrouping/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '商品参数',
                 name: 'commodityparameter',
                 path: '/commodity/commodityparameter',
                 component: () =>
-                    import('@/views/commodity/commodityparameter/index.vue'),
+                    import('@/views/commodity/commodityparameter/index.vue')
             },
             {
                 asideMenu: false,
@@ -105,7 +104,7 @@ export const appRouter = [
                 name: 'commodityparameteradd',
                 path: '/commodity/commodityparameteradd',
                 component: () =>
-                    import('@/views/commodity/commodityparameteradd/index.vue'),
+                    import('@/views/commodity/commodityparameteradd/index.vue')
             },
             {
                 asideMenu: false,
@@ -113,9 +112,9 @@ export const appRouter = [
                 name: 'commodityadd',
                 path: '/commodity/commodityadd',
                 component: () =>
-                    import('@/views/commodity/commodityadd/index.vue'),
-            },
-        ],
+                    import('@/views/commodity/commodityadd/index.vue')
+            }
+        ]
     },
     {
         title: '订单',
@@ -124,12 +123,11 @@ export const appRouter = [
         component: main,
         children: [
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '订单概况',
                 name: 'OrderOverview',
                 path: '/Order/OrderOverview',
-                component: () =>
-                    import('@/views/Order/OrderOverview/index.vue'),
+                component: () => import('@/views/Order/OrderOverview/index.vue')
             },
             // {
             //     title: '订单管理',
@@ -139,20 +137,20 @@ export const appRouter = [
             //         import('@/views/commodity/commodityclassification/index.vue'),
             // },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '退货维权',
                 name: 'OrderReturn',
                 path: '/Order/OrderReturn',
-                component: () => import('@/views/Order/OrderReturn/index.vue'),
+                component: () => import('@/views/Order/OrderReturn/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '批量发货',
                 name: 'OrderShip',
                 path: '/Order/OrderShip',
-                component: () => import('@/views/Order/OrderShip/index.vue'),
-            },
-        ],
+                component: () => import('@/views/Order/OrderShip/index.vue')
+            }
+        ]
     },
     {
         title: '客户',
@@ -161,61 +159,59 @@ export const appRouter = [
         component: main,
         children: [
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '客户管理',
                 name: 'clientmanagement',
                 path: '/client/clientmanagement',
                 component: () =>
-                    import('@/views/client/clientmanagement/index.vue'),
+                    import('@/views/client/clientmanagement/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '客户运营',
                 name: 'clientOperation',
                 path: '/client/clientOperation',
                 component: () =>
-                    import('@/views/client/clientOperation/index.vue'),
+                    import('@/views/client/clientOperation/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '会员管理',
                 name: 'clientmember',
                 path: '/client/clientmember',
-                component: () =>
-                    import('@/views/client/clientmember/index.vue'),
+                component: () => import('@/views/client/clientmember/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '会员卡',
                 name: 'clientmembercard',
                 path: '/client/clientmembercard',
                 component: () =>
-                    import('@/views/client/clientmembercard/index.vue'),
+                    import('@/views/client/clientmembercard/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '会员储值',
                 name: 'clientenergy',
                 path: '/client/clientenergy',
-                component: () =>
-                    import('@/views/client/clientenergy/index.vue'),
+                component: () => import('@/views/client/clientenergy/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '标签管理',
                 name: 'clientlabel',
                 path: '/client/clientlabel',
-                component: () => import('@/views/client/clientlabel/index.vue'),
+                component: () => import('@/views/client/clientlabel/index.vue')
             },
             {
-                asideMenu: true,
+                asideMenu: false,
                 title: '积分管理',
                 name: 'clientintegral',
                 path: '/client/clientintegral',
                 component: () =>
-                    import('@/views/client/clientintegral/index.vue'),
-            },
-        ],
-    },
-];
-export const routers = [lOginRouter, ...appRouter];
+                    import('@/views/client/clientintegral/index.vue')
+            }
+        ]
+    }
+]
+export const routers = [lOginRouter, ...appRouter]
