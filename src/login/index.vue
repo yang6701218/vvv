@@ -59,16 +59,14 @@ export default {
             });
         },
         login() {
-            axios.post({
+            axios({
                 method: 'post',
-                data: this.ruleForm
-            }).then(res => {
-                if (res) {
-                    this.$router.push({
-                        name: 'grouptemplate',
-                    })
+                url: '/user/12345',
+                data: {
+                    firstName: 'Fred',
+                    lastName: 'Flintstone'
                 }
-            })
+            });
 
         }
     }

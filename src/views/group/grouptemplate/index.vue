@@ -17,28 +17,24 @@ import axios from 'axios'
 export default {
     methods: {
         one() {
-            axios.post({
+            axios({
                 method: 'post',
-                data: this.ruleForm
-            }).then(res => {
-                if (res) {
-                    this.$router.push({
-                        name: 'grouptemplate',
-                    })
+                url: '/user/12345',
+                data: {
+                    firstName: 'Fred',
+                    lastName: 'Flintstone'
                 }
-            })
+            });
         },
         two() {
-            axios.post({
+            axios({
                 method: 'post',
-                data: this.ruleForm
-            }).then(res => {
-                if (res) {
-                    this.$router.push({
-                        name: 'grouptemplate',
-                    })
+                url: '/user/12345',
+                data: {
+                    firstName: 'Fred',
+                    lastName: 'Flintstone'
                 }
-            })
+            });
         }
     }
 }
