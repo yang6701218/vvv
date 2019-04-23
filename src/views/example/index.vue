@@ -1,8 +1,8 @@
 <template>
-  <p>会员储值</p>
+    <p>222</p>
 </template>
 <script>
 export default {
-    
+
 }
 </script>

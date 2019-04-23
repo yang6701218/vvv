@@ -1,4 +1,4 @@
 const changeisCollapse = state => {
-    return state.global.isCollapse;
-};
-export { changeisCollapse };
+    return state.isCollapse
+}
+export { changeisCollapse }

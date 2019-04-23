@@ -1,6 +1,6 @@
 export const changeisCollapse = state => {
-    state.global.isCollapse = !state.global.isCollapse;
-};
+    state.isCollapse = !state.isCollapse
+}
 export const setTableData = (state, data) => {
-    state.global.tableData = data;
-};
+    state.tableData = data
+}

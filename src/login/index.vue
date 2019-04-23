@@ -1,32 +1,49 @@
 <template>
-    <div class="main">
-        <el-card class="loginBox">
-            <div slot="header" class="clearfix">
-                <span>后台系统</span>
+    <div class="page">
+        <div class="container">
+            <div class="left">
+                <div class="login">权限管理</div>
+                <div class="eula">权限管理系统，</div>
             </div>
-            <el-form
-                :model="ruleForm"
-                :rules="rules"
-                ref="ruleForm"
-                label-width="0"
-                class="demo-ruleForm"
-                label-position="left"
-            >
-                <el-form-item prop="userName">
-                    <el-input v-model="ruleForm.userName" placeholder="请输入账号"></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
-                </el-form-item>
-            </el-form>
-            <el-button type="primary" class="loginBtn" @click="submitForm('ruleForm')">立即创建</el-button>
-        </el-card>
+            <div class="right">
+                <svg viewBox="0 0 320 300">
+                    <defs>
+                        <linearGradient
+                            inkscape:collect="always"
+                            id="linearGradient"
+                            x1="13"
+                            y1="193.49992"
+                            x2="307"
+                            y2="193.49992"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop style="stop-color:#ff00ff;" offset="0" id="stop876"></stop>
+                            <stop style="stop-color:#ff0000;" offset="1" id="stop878"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
+                    ></path>
+                </svg>
+                <div class="form">
+                    <label for="email">用户名</label>
+                    <input type="email" id="email">
+                    <label for="password">密码</label>
+                    <input type="password" id="password">
+                    <input type="submit" id="submit" value="Submit" @click="submitForm">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
+import anime from 'animejs'
 import { mapActions } from 'vuex'
 import axios from 'axios'
 export default {
+    created() {
+
+    },
     data() {
         return {
             ruleForm: {
@@ -47,58 +64,162 @@ export default {
             }
         }
     },
+    mounted() {
+        this.init()
+    },
     methods: {
-        ...mapActions[{}],
+        ...mapActions([]),
+        init() {
+            var current = null;
+            document
+                .querySelector('#email')
+                .addEventListener('focus', function (e) {
+                    if (current) current.pause()
+                    current = anime({
+                        targets: 'path',
+                        strokeDashoffset: {
+                            value: 0,
+                            duration: 700,
+                            easing: 'easeOutQuart'
+                        },
+                        strokeDasharray: {
+                            value: '240 1386',
+                            duration: 700,
+                            easing: 'easeOutQuart'
+                        }
+                    })
+                })
+            document.querySelector('#password').addEventListener('focus', function (e) {
+                if (current) current.pause()
+                current = anime({
+                    targets: 'path',
+                    strokeDashoffset: {
+                        value: -336,
+                        duration: 700,
+                        easing: 'easeOutQuart'
+                    },
+                    strokeDasharray: {
+                        value: '240 1386',
+                        duration: 700,
+                        easing: 'easeOutQuart'
+                    }
+                })
+            })
+            document
+                .querySelector('#submit')
+                .addEventListener('focus', function (e) {
+                    if (current) current.pause()
+                    current = anime({
+                        targets: 'path',
+                        strokeDashoffset: {
+                            value: -730,
+                            duration: 700,
+                            easing: 'easeOutQuart'
+                        },
+                        strokeDasharray: {
+                            value: '530 1386',
+                            duration: 700,
+                            easing: 'easeOutQuart'
+                        }
+                    })
+                })
+        },
         submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    this.login()
-                } else {
-                    return false;
-                }
-            });
+            this.login()
         },
         login() {
-            axios({
-                method: 'post',
-                url: '/user/12345',
-                data: {
-                    firstName: 'Fred',
-                    lastName: 'Flintstone'
-                }
-            });
-
+            this.$router.push({
+                name: 'example'
+            })
         }
     }
 }
 </script>
 <style lang="less" scoped>
-.main {
-    width: 100vw;
-    height: 100vh;
+.page {
     display: flex;
-    justify-content: center;
-
-    .clearfix {
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
+    flex-direction: column;
+    height: calc(100%);
+    position: absolute;
+    place-content: center;
+    width: calc(100%);
+    .container {
+        display: flex;
+        height: 320px;
+        margin: 0 auto;
+        width: 640px;
+        .left {
+            background: rgb(240, 233, 233);
+            height: calc(100% - 40px);
+            top: 20px;
+            position: relative;
+            width: 50%;
+            .login {
+                font-size: 50px;
+                font-weight: 900;
+                margin: 50px 40px 40px;
+            }
+            .eula {
+                color: #999;
+                font-size: 14px;
+                line-height: 1.5;
+                margin: 40px;
+            }
+        }
+        .right {
+            background: #474a59;
+            box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+            color: #f1f1f2;
+            position: relative;
+            width: 50%;
+            .form {
+                margin: 40px;
+                position: absolute;
+                label {
+                    color: #c2c2c5;
+                    display: block;
+                    font-size: 14px;
+                    height: 16px;
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                }
+                input {
+                    background: transparent;
+                    border: 0;
+                    color: #f2f2f2;
+                    font-size: 20px;
+                    height: 30px;
+                    line-height: 30px;
+                    outline: none !important;
+                    width: 100%;
+                }
+                input::-moz-focus-inner {
+                    border: 0;
+                }
+                #submit {
+                    color: #707075;
+                    margin-top: 40px;
+                    transition: color 300ms;
+                }
+                #submit:focus {
+                    color: #f2f2f2;
+                }
+                #submit:active {
+                    color: #d0d0d2;
+                }
+            }
+        }
     }
+}
 
-    .loginBtn {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    .loginBox {
-        width: 400px;
-        height: 300px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-    }
+svg {
+    position: absolute;
+    width: 320px;
+}
+path {
+    fill: none;
+    stroke: url(#linearGradient);
+    stroke-width: 4;
+    stroke-dasharray: 240 1386;
 }
 </style>

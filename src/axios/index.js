@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { Loading } from 'element-ui';
-import { Message } from 'element-ui';
-import { router } from '@/router/index.js';
-let LoadingService, LoadingTime;
+import axios from 'axios'
+import { Loading } from 'element-ui'
+import { Message } from 'element-ui'
+import { router } from '@/router/index.js'
+let LoadingService, LoadingTime
 export default function $axios(options) {
     return new Promise((resolve, reject) => {
         const instance = axios.create({
             baseURL: process.env.API_ROOT,
-            withCredentials: true,
-        });
+            withCredentials: true
+        })
         // request 拦截器
         instance.interceptors.request.use(
             config => {
@@ -18,21 +18,21 @@ export default function $axios(options) {
                     config.url != '/v1/pwc/dictarea/getNextRegionsByParentCode'
                 ) {
                     LoadingService = Loading.service({
-                        fullscreen: true,
-                    });
+                        fullscreen: true
+                    })
                 }
                 //
                 // Tip: 2
                 // 带上 token , 可以结合 vuex 或者重 localStorage
                 // if (store.getters.token) {
                 config.headers['token'] = JSON.parse(
-                    sessionStorage.getItem('YBS-YNFYBJ-USER'),
-                ).token;
-                return config;
+                    sessionStorage.getItem('YBS-YNFYBJ-USER')
+                ).token
+                return config
             },
             error => {
-                LoadingService.close();
-                return Promise.reject(error);
+                LoadingService.close()
+                return Promise.reject(error)
                 //  1.判断请求超时
                 // if (
                 //     error.code === 'ECONNABORTED' &&
@@ -54,38 +54,31 @@ export default function $axios(options) {
                 //     })
                 // }
                 // return Promise.reject(error) // 在调用的那边可以拿到(catch)你想返回的错误信息
-            },
-        );
+            }
+        )
         // // response 拦截器
         instance.interceptors.response.use(response => {
-            let data;
-            timeOutHideLoading();
+            let data
+            timeOutHideLoading()
             if (response.data == undefined) {
-                data = response.request.responseText;
+                data = response.request.responseText
             } else {
-                data = response.data;
-                if (data.code !== 'SUCCESS') {
-                }
+                data = response.data
             }
-            switch (data.code) {
-                case 'SUCCESS':
-
-                default:
-            }
-        });
+        })
         instance(options)
             .then(res => {
-                resolve(res);
+                resolve(res)
             })
             .catch(error => {
-                reject(error);
-            });
-    });
+                reject(error)
+            })
+    })
 }
 function timeOutHideLoading() {
-    clearTimeout(LoadingTime);
+    clearTimeout(LoadingTime)
     LoadingTime = setTimeout(() => {
-        clearTimeout(LoadingTime);
-        LoadingService.close();
-    }, 300);
+        clearTimeout(LoadingTime)
+        LoadingService.close()
+    }, 300)
 }

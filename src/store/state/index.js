@@ -1,8 +1,8 @@
-import { appRouter } from '@/router/router.js';
-import { global } from '@/store/state/global.js';
+import { appRouter } from '@/router/router.js'
+import * as global from '@/store/state/global.js'
 const state = {
-    tableData: [],
     appRouter,
-    global,
-};
-export default state;
+    isCollapse: global.isCollapse,
+    tableData: global.tableData
+}
+export default state

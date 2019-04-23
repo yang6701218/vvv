@@ -1,4 +1,2 @@
-export const global = {
-    isCollapse: true,
-    tableData: [],
-};
+export const isCollapse = false
+export const tableData = []
