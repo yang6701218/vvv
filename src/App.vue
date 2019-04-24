@@ -15,6 +15,7 @@
     width: 100vw;
     height: 100vh;
 }
+
 #nav {
     padding: 30px;
     a {

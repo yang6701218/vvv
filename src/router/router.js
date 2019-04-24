@@ -18,6 +18,13 @@ export const appRouter = [
                 name: 'example',
                 path: '/main/example',
                 component: () => import('@/views/example/index.vue')
+            },
+            {
+                asideMenu: true,
+                title: '例子2',
+                name: 'Aircraft',
+                path: '/main/Aircraft',
+                component: () => import('@/views/Aircraft/index.vue')
             }
         ]
     }
