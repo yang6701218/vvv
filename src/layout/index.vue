@@ -32,7 +32,6 @@ export default {
     height: 100px;
 }
 .el-main {
-    background-color: #e9eef3;
     color: #333;
     margin: 20px;
 }

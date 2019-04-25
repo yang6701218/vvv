@@ -7,57 +7,30 @@
             label-width="100px"
             class="demo-ruleForm"
         >
-            <el-form-item label="活动名称" prop="name">
-                <el-input v-model="ruleForm.name"></el-input>
-            </el-form-item>
-            <el-form-item label="活动区域" prop="region">
+            <el-form-item label="活动选择" prop="region">
                 <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
                     <el-option label="区域一" value="shanghai"></el-option>
                     <el-option label="区域二" value="beijing"></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="活动时间" required>
-                <el-col :span="11">
-                    <el-form-item prop="date1">
-                        <el-date-picker
-                            type="date"
-                            placeholder="选择日期"
-                            v-model="ruleForm.date1"
-                            style="width: 100%;"
-                        ></el-date-picker>
-                    </el-form-item>
-                </el-col>
-                <el-col class="line" :span="2">-</el-col>
-                <el-col :span="11">
-                    <el-form-item prop="date2">
-                        <el-time-picker
-                            placeholder="选择时间"
-                            v-model="ruleForm.date2"
-                            style="width: 100%;"
-                        ></el-time-picker>
-                    </el-form-item>
-                </el-col>
-            </el-form-item>
-            <el-form-item label="即时配送" prop="delivery">
-                <el-switch v-model="ruleForm.delivery"></el-switch>
-            </el-form-item>
-            <el-form-item label="活动性质" prop="type">
-                <el-checkbox-group v-model="ruleForm.type">
-                    <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                    <el-checkbox label="地推活动" name="type"></el-checkbox>
-                    <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                    <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-                </el-checkbox-group>
-            </el-form-item>
             <el-form-item label="特殊资源" prop="resource">
                 <el-radio-group v-model="ruleForm.resource">
-                    <el-radio label="线上品牌商赞助"></el-radio>
-                    <el-radio label="线下场地免费"></el-radio>
+                    <el-radio label="2">模式一</el-radio>
+                    <el-radio label="2">模式二</el-radio>
                 </el-radio-group>
             </el-form-item>
-            <el-form-item label="活动形式" prop="desc">
-                <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-            </el-form-item>
+            <el-row v-for="(item,index) in levelList" :key="index">
+                <from0 :level="item" ref="from0"></from0>
+            </el-row>
+            <el-row v-for="(item,index) in levelList" :key="index">
+                <from1 :level="item"></from1>
+            </el-row>
+            <el-row v-for="(item,index) in levelList" :key="index">
+                <from3 :level="item"></from3>
+            </el-row>
+            <el-row v-for="(item,index) in levelList" :key="index">
+                <from2 :level="item"></from2>
+            </el-row>
             <el-form-item>
                 <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -66,9 +39,22 @@
     </div>
 </template>
 <script>
+import { danwei, levelList } from '@/views/example/components/data.js'
+import from0 from '@/views/example/components/form0.vue'
+import from1 from '@/views/example/components/form1.vue'
+import from2 from '@/views/example/components/form2.vue'
+import from3 from '@/views/example/components/form3.vue'
 export default {
+    components: {
+        from0,
+        from1,
+        from2,
+        from3
+    },
     data() {
         return {
+            danwei,
+            levelList,
             ruleForm: {
                 name: '',
                 region: '',
@@ -107,14 +93,19 @@ export default {
     },
     methods: {
         submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    alert('submit!');
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
+            //  console.log(this.$refs[0].submitForm)
+            for (let i = 0; i < this.$refs.from0.length; i++) {
+                let data = this.$refs.from0[i].test();
+                console.log(data)
+            }
+            // this.$refs[formName].validate((valid) => {
+            //     if (valid) {
+            //         alert('submit!');
+            //     } else {
+            //         console.log('error submit!!');
+            //         return false;
+            //     }
+            // });
         },
         resetForm(formName) {
             this.$refs[formName].resetFields();
