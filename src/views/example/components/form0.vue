@@ -17,7 +17,7 @@
       required: true, message: '域名不能为空', trigger: 'blur'
     }"
             >
-                <el-input v-model="ruleForm.list[index].value"></el-input>
+                <el-input v-model="item.value"></el-input>
             </el-form-item>
         </el-form-item>
     </el-form>

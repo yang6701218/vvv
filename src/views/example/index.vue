@@ -13,24 +13,47 @@
                     <el-option label="区域二" value="beijing"></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="特殊资源" prop="resource">
-                <el-radio-group v-model="ruleForm.resource">
-                    <el-radio label="2">模式一</el-radio>
-                    <el-radio label="2">模式二</el-radio>
-                </el-radio-group>
-            </el-form-item>
+            <el-form-item label="分销价格"></el-form-item>
             <el-row v-for="(item,index) in levelList" :key="index">
                 <from0 :level="item" ref="from0"></from0>
             </el-row>
-            <el-row v-for="(item,index) in levelList" :key="index">
-                <from1 :level="item"></from1>
-            </el-row>
-            <el-row v-for="(item,index) in levelList" :key="index">
-                <from3 :level="item"></from3>
-            </el-row>
-            <el-row v-for="(item,index) in levelList" :key="index">
-                <from2 :level="item"></from2>
-            </el-row>
+            <el-form-item label="业绩分销设定">
+                <el-form-item label-width="100px">
+                    <el-radio-group v-model="ruleForm.resource">
+                        <el-radio label="1">模式一</el-radio>
+                        <el-radio label="2">模式二</el-radio>
+                    </el-radio-group>
+                </el-form-item>
+            </el-form-item>
+            <div v-if="ruleForm.resource==1">
+                <el-row v-for="(item,index) in levelList" :key="index">
+                    <from1 :level="item"></from1>
+                </el-row>
+            </div>
+            <div v-if="ruleForm.resource==2">
+                <el-row v-for="(item,index) in levelList" :key="index">
+                    <from2 :level="item"></from2>
+                </el-row>
+            </div>
+            <el-form-item label="推荐业绩">
+                <el-form-item label-width="100px">
+                    <el-radio-group v-model="ruleForm.desc">
+                        <el-radio label="1">模式一</el-radio>
+                        <el-radio label="2">模式二</el-radio>
+                    </el-radio-group>
+                </el-form-item>
+            </el-form-item>
+            <div v-if="ruleForm.desc==1">
+                <el-row v-for="(item,index) in levelList" :key="index">
+                    <from3 :level="item"></from3>
+                </el-row>
+            </div>
+            <div v-if="ruleForm.desc==2">
+                <el-row v-for="(item,index) in levelList" :key="index">
+                    <from4 :level="item"></from4>
+                </el-row>
+            </div>
+
             <el-form-item>
                 <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -44,12 +67,14 @@ import from0 from '@/views/example/components/form0.vue'
 import from1 from '@/views/example/components/form1.vue'
 import from2 from '@/views/example/components/form2.vue'
 import from3 from '@/views/example/components/form3.vue'
+import from4 from '@/views/example/components/form4.vue'
 export default {
     components: {
         from0,
         from1,
         from2,
-        from3
+        from3,
+        from4
     },
     data() {
         return {
@@ -62,8 +87,8 @@ export default {
                 date2: '',
                 delivery: false,
                 type: [],
-                resource: '',
-                desc: ''
+                resource: '1',
+                desc: '1'
             },
             rules: {
                 name: [
