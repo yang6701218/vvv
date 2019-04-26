@@ -1,5 +1,5 @@
 <template>
-    <div>选择系统</div>
+    <div></div>
 </template>
 <script>
 export default {

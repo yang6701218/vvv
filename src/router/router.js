@@ -15,16 +15,18 @@ export const appRouter = [
             {
                 asideMenu: true,
                 title: '例子',
-                name: 'example',
-                path: '/main/example',
-                component: () => import('@/views/example/index.vue')
+                name: 'examplePage1',
+                path: '/main/examplePage1',
+                component: () =>
+                    import('src/views/example/examplePage1/index.vue')
             },
             {
                 asideMenu: true,
                 title: '例子2',
-                name: 'Aircraft',
-                path: '/main/Aircraft',
-                component: () => import('@/views/Aircraft/index.vue')
+                name: 'examplePage2',
+                path: '/main/examplePage1',
+                component: () =>
+                    import('@/views/example/examplePage2/index.vue')
             }
         ]
     }
