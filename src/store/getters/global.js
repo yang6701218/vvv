@@ -1,4 +1,3 @@
-const changeisCollapse = state => {
+export const changeisCollapse = state => {
     return state.isCollapse
 }
-export { changeisCollapse }

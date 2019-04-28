@@ -1,7 +1,7 @@
-import meunList from '@/store/getters/menu.js';
-import { changeisCollapse } from '@/store/getters/global.js';
+import meunList from '@/store/getters/menu.js'
+import { changeisCollapse } from '@/store/getters/global.js'
 const getters = {
     meunList,
-    changeisCollapse,
-};
-export default getters;
+    changeisCollapse
+}
+export default getters
